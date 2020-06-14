@@ -1,5 +1,7 @@
 'use strict'
 
+const { EnumCommitType } = require('./lib/types');
+
 const compareFunc = require('compare-func')
 const Q = require('q')
 const readFile = Q.denodeify(require('fs').readFile)
@@ -33,6 +35,22 @@ function getWriterOpts () {
         discard = false
       })
 
+      if (EnumCommitType[commit.type])
+      {
+        commit.type = EnumCommitType[commit.type]
+        discard = false
+      }
+      else if (commit.revert)
+      {
+        commit.type = EnumCommitType.revert
+        discard = false
+      }
+      else if (discard)
+      {
+        return
+      }
+
+      /*
       if (commit.type === 'feat') {
         commit.type = 'Features'
       } else if (commit.type === 'fix') {
@@ -56,6 +74,7 @@ function getWriterOpts () {
       } else if (commit.type === 'ci') {
         commit.type = 'Continuous Integration'
       }
+       */
 
       if (commit.scope === '*') {
         commit.scope = ''
