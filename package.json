@@ -1,5 +1,5 @@
 {
-  "name": "conventional-changelog-angular",
+  "name": "@bluelovers/conventional-changelog-bluelovers",
   "version": "5.0.10",
   "description": "conventional-changelog angular preset",
   "main": "index.js",
