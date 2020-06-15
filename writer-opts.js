@@ -1,11 +1,16 @@
 'use strict'
 
-const { EnumCommitType } = require('./lib/types');
+const { EnumCommitType, EnumCommitTypeEmoji, EnumCommitEmojiToType } = require('./lib/types');
 
 const compareFunc = require('compare-func')
 const Q = require('q')
 const readFile = Q.denodeify(require('fs').readFile)
 const resolve = require('path').resolve
+
+const order = [...Object.values(EnumCommitType)]
+
+const commitGroupsSort = (g1, g2) =>
+  order.indexOf(g1.title) - order.indexOf(g2.title);
 
 module.exports = Q.all([
   readFile(resolve(__dirname, './templates/template.hbs'), 'utf-8'),
@@ -35,6 +40,12 @@ function getWriterOpts () {
         discard = false
       })
 
+      let type = commit.type;
+      if (EnumCommitEmojiToType[type])
+      {
+        type = EnumCommitEmojiToType[type]
+      }
+
       if (EnumCommitType[commit.type])
       {
         commit.type = EnumCommitType[commit.type]
@@ -45,9 +56,20 @@ function getWriterOpts () {
         commit.type = EnumCommitType.revert
         discard = false
       }
+      else if (1)
+      {
+        commit.type = EnumCommitType.misc;
+
+        //return
+      }
       else if (discard)
       {
         return
+      }
+
+      if (EnumCommitTypeEmoji[type])
+      {
+        commit.type = EnumCommitTypeEmoji[type] + ' ' + EnumCommitTypeEmoji[type]
       }
 
       /*
@@ -120,8 +142,10 @@ function getWriterOpts () {
       return commit
     },
     groupBy: 'type',
-    commitGroupsSort: 'title',
-    commitsSort: ['scope', 'subject'],
+    //commitGroupsSort: 'title',
+    commitGroupsSort,
+    //commitsSort: ['scope', 'subject'],
+    commitsSort: ['scope'],
     noteGroupsSort: 'title',
     notesSort: compareFunc
   }
