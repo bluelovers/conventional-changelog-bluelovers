@@ -35,7 +35,7 @@ function getWriterOpts () {
       let discard = true
       const issues = []
 
-      commit.notes.forEach(note => {
+      commit.notes && commit.notes.forEach(note => {
         note.title = 'BREAKING CHANGES'
         discard = false
       })
