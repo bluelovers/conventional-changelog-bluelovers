@@ -1,10 +1,11 @@
 {
   "name": "@bluelovers/conventional-changelog-bluelovers",
   "version": "5.0.16",
-  "description": "conventional-changelog angular preset",
+  "description": "mixin angular/emoji preset of conventional-changelog",
   "keywords": [
     "conventional-changelog",
     "angular",
+    "emoji",
     "preset"
   ],
   "homepage": "https://github.com/bluelovers/conventional-changelog-bluelovers#readme",
