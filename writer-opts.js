@@ -46,9 +46,9 @@ function getWriterOpts () {
         type = EnumCommitEmojiToType[type]
       }
 
-      if (EnumCommitType[commit.type])
+      if (EnumCommitType[type])
       {
-        commit.type = EnumCommitType[commit.type]
+        commit.type = EnumCommitType[type]
         discard = false
       }
       else if (commit.revert)
@@ -69,7 +69,7 @@ function getWriterOpts () {
 
       if (EnumCommitTypeEmoji[type])
       {
-        commit.type = EnumCommitTypeEmoji[type] + ' ' + EnumCommitTypeEmoji[type]
+        commit.type = EnumCommitTypeEmoji[type] + ' ' + commit.type
       }
 
       /*

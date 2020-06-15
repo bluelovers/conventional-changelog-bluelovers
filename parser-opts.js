@@ -10,7 +10,7 @@ headerPattern[Symbol.match] = headerPattern.exec = function (str)
 {
   let result = re2.exec(str);
 
-  if (typeof result[1] === 'undefined' && typeof result[2] === 'undefined')
+  if (typeof result[1] === 'undefined' && typeof result[2] === 'undefined' && typeof result[3] !== 'undefined')
   {
     result[1] = result[3]
     result[2] = result[4]
