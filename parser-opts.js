@@ -4,19 +4,22 @@ const emojiRegex = require('emoji-regex/text')();
 
 const headerPattern = /^(\w*)(?:\((.*)\))?: (.*)$/;
 
-let re2 = new RegExp(`^(?:(\\w*)(?:\\((.*)\\))?:|(${emojiRegex.source})(?:\\((.*)\\))?)\s*(.*)$`, 'u')
+let re2 = new RegExp(`^(?:(\\w*)(?:\\((.*)\\))?:|(${emojiRegex.source})(?:\\((.*)\\))?)\s*?(.*)$`, 'u')
 
 headerPattern[Symbol.match] = headerPattern.exec = function (str)
 {
   let result = re2.exec(str);
 
-  if (typeof result[1] === 'undefined' && typeof result[2] === 'undefined' && typeof result[3] !== 'undefined')
+  if (result)
   {
-    result[1] = result[3]
-    result[2] = result[4]
-  }
+    if (typeof result[1] === 'undefined' && typeof result[2] === 'undefined' && typeof result[3] !== 'undefined')
+    {
+      result[1] = result[3]
+      result[2] = result[4]
+    }
 
-  result.splice(3, 2)
+    result.splice(3, 2)
+  }
 
   return result
 }
