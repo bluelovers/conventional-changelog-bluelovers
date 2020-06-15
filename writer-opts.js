@@ -69,7 +69,7 @@ function getWriterOpts () {
 
       if (EnumCommitTypeEmoji[type])
       {
-        commit.type = EnumCommitTypeEmoji[type] + ' ' + commit.type
+        commit.type = EnumCommitTypeEmoji[type] + '　' + commit.type
       }
 
       /*
