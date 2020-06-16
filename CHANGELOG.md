@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.19](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.18...@bluelovers/conventional-changelog-bluelovers@5.0.19) (2020-06-16)
+
+
+### fix
+
+*  try fix sort ([97f0b2b](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/97f0b2be729ae08cbb7e81b5fbe34892baa30b24))
+
+
+
+
+
 ## 5.0.18 (2020-06-16)
 
 
