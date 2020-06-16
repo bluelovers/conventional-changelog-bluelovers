@@ -7,10 +7,23 @@ const Q = require('q')
 const readFile = Q.denodeify(require('fs').readFile)
 const resolve = require('path').resolve
 
-const order = [...Object.values(EnumCommitType)]
+const order = [...Object.keys(EnumCommitType)]
+  .map(type => {
+    let title = EnumCommitType[type] ?? type;
+
+    console.dir(type)
+
+    if (EnumCommitTypeEmoji[type])
+    {
+      title = EnumCommitTypeEmoji[type] + '　' + title
+    }
+
+    return title
+  })
+;
 
 const commitGroupsSort = (g1, g2) =>
-  order.indexOf(g1.type) - order.indexOf(g2.type);
+  order.indexOf(g1.title) - order.indexOf(g2.title);
 
 module.exports = Q.all([
   readFile(resolve(__dirname, './templates/template.hbs'), 'utf-8'),
@@ -77,7 +90,7 @@ function getWriterOpts () {
         title = EnumCommitTypeEmoji[type] + '　' + title
       }
 
-      commit.title = title;
+      commit.type = commit.title = title;
 
       /*
       if (commit.type === 'feat') {

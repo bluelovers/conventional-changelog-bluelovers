@@ -4,8 +4,9 @@
 import emoji from './emoji';
 
 export const EnumCommitType = {
-	feat: 'Features',
 	fix: 'Bug Fixes',
+
+	feat: 'Features',
 	perf: 'Performance Improvements',
 
 	revert: 'Reverts',
@@ -33,6 +34,7 @@ export const EnumCommitTypeEmoji = {
 	build: emoji.build,
 	ci: emoji.ci,
 	chore: emoji.chore,
+	misc: emoji.tag,
 };
 
 export const EnumCommitEmojiToType = {

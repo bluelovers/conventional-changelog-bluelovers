@@ -3,8 +3,8 @@
  */
 import emoji from './emoji';
 export declare const EnumCommitType: {
-    feat: string;
     fix: string;
+    feat: string;
     perf: string;
     revert: string;
     refactor: string;
@@ -28,6 +28,7 @@ export declare const EnumCommitTypeEmoji: {
     build: emoji;
     ci: emoji;
     chore: emoji;
+    misc: emoji;
 };
 export declare const EnumCommitEmojiToType: {
     "\u2728": string;
