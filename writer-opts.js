@@ -11,8 +11,6 @@ const order = [...Object.keys(EnumCommitType)]
   .map(type => {
     let title = EnumCommitType[type] ?? type;
 
-    console.dir(type)
-
     if (EnumCommitTypeEmoji[type])
     {
       title = EnumCommitTypeEmoji[type] + '　' + title
