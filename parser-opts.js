@@ -2,9 +2,9 @@
 
 const emojiRegex = require('emoji-regex/text')();
 
-const headerPattern = /^(\w*)(?:\((.*)\))?: (.*)$/;
+const headerPattern = /^(\w+)(?:\(([^)]*)\))?:\s+(.*)$/;
 
-let re2 = new RegExp(`^(?:(\\w*)(?:\\((.*)\\))?:|(${emojiRegex.source})(?:\\((.*)\\))?)\s*?(.*)$`, 'u')
+const re2 = new RegExp(`^(?:(\\w+)(?:\\(([^)]*)\\))?:|(${emojiRegex.source})(?:\\((.+)\\))?)\\s+(.*)$`, 'u')
 
 headerPattern[Symbol.match] = headerPattern.exec = function (str)
 {
