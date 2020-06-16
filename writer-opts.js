@@ -8,16 +8,25 @@ const readFile = Q.denodeify(require('fs').readFile)
 const resolve = require('path').resolve
 
 const order = [...Object.keys(EnumCommitType)]
-  .map(type => {
+  .reduce((a, type) => {
+    a.push(type);
+
     let title = EnumCommitType[type] ?? type;
+
+    if (title !== type)
+    {
+      a.push(title);
+    }
 
     if (EnumCommitTypeEmoji[type])
     {
       title = EnumCommitTypeEmoji[type] + '　' + title
+
+      a.push(title);
     }
 
-    return title
-  })
+    return a
+  }, [])
 ;
 
 const commitGroupsSort = (g1, g2) =>
