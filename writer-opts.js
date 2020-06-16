@@ -10,7 +10,7 @@ const resolve = require('path').resolve
 const order = [...Object.values(EnumCommitType)]
 
 const commitGroupsSort = (g1, g2) =>
-  order.indexOf(g1.title) - order.indexOf(g2.title);
+  order.indexOf(g1.type) - order.indexOf(g2.type);
 
 module.exports = Q.all([
   readFile(resolve(__dirname, './templates/template.hbs'), 'utf-8'),
@@ -46,19 +46,22 @@ function getWriterOpts () {
         type = EnumCommitEmojiToType[type]
       }
 
+      let title = type;
+
       if (EnumCommitType[type])
       {
-        commit.type = EnumCommitType[type]
+        title = EnumCommitType[type]
         discard = false
       }
       else if (commit.revert)
       {
-        commit.type = EnumCommitType.revert
+        title = EnumCommitType.revert
         discard = false
       }
       else if (1)
       {
-        commit.type = EnumCommitType.misc;
+        title = EnumCommitType.misc;
+        type = 'misc'
 
         //return
       }
@@ -67,10 +70,14 @@ function getWriterOpts () {
         return
       }
 
+      commit.type = type;
+
       if (EnumCommitTypeEmoji[type])
       {
-        commit.type = EnumCommitTypeEmoji[type] + '　' + commit.type
+        title = EnumCommitTypeEmoji[type] + '　' + title
       }
+
+      commit.title = title;
 
       /*
       if (commit.type === 'feat') {
