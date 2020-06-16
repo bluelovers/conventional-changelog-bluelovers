@@ -11,15 +11,25 @@ var through = require('through2')
 var path = require('path')
 var betterThanBefore = require('better-than-before')()
 var preparing = betterThanBefore.preparing
+var rimraf = require('rimraf').sync
+var fs = require('fs-extra')
 
 betterThanBefore.setups([
   function () {
     shell.config.resetForTesting()
     shell.cd(__dirname)
-    shell.rm('-rf', 'tmp')
-    shell.mkdir('tmp')
-    shell.cd('tmp')
-    shell.mkdir('git-templates')
+
+    fs.removeSync(path.posix.join(__dirname, 'tmp', 'git-templates'))
+    fs.ensureDirSync(path.posix.join(__dirname, 'tmp', 'git-templates'));
+
+    //rimraf(path.posix.join(__dirname, 'tmp', 'git-templates'))
+    //shell.rm('-rf', 'tmp')
+    //shell.mkdir('tmp')
+    //shell.cd('tmp')
+    //shell.mkdir('git-templates')
+
+    shell.cd(path.posix.join(__dirname, 'tmp', 'git-templates'))
+
     shell.exec('git init --template=./git-templates')
 
     gitDummyCommit(['build: first build setup', 'BREAKING CHANGE: New build system.'])
