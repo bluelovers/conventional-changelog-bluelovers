@@ -3,6 +3,55 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 5.0.18 (2020-06-16)
+
+
+### 🐛　Bug Fixes
+
+*  try fix sort ([8b7771c](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/8b7771caef26c5e6c471acccd48fff0a68a8cf16))
+*  avoid lost space between emoji and title ([2be81e1](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/2be81e16a65ab496db1c99b04319525796f4d642))
+*  regexp ([5295ec6](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/5295ec604ebed94af8b8a6d4e45b876a45ed93a1))
+*  Cannot read property 'forEach' of undefined ([6b84573](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/6b8457315639d15bace72f1d7ac78b875d9124e1))
+*  re is not defined ([bd26399](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/bd2639957e8e60f72f29ce1eeeefc55f8969e0dc))
+
+
+### ♻️　Chores
+
+* **release:**  publish & git push & echo postpublish ([4bdb153](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/4bdb153d8fb05957380c66e13e9da2c6fc425c25))
+*  continue to address the fact that release has not been run ([73b8880](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/73b8880c0e09cf8b6d5d6991ed9547636f21b013))
+*  fix version in package.json ([30cd545](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/30cd5453f07eff30e4a6829ddfea5010c0b55c5d))
+* **devDeps:**  update eslint and related packages ([#560](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/560)) ([76f3b88](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/76f3b884a18c5d4f30e86bdbaf6c9251cba89284))
+*  update link to example config in help ([#552](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/552)) ([c26899e](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/c26899e9aab0afb5acbc17ce2cba0f4c3040c802))
+
+
+### ✨　Features
+
+*  support emoji ([9ae4544](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/9ae4544b6cc92ca60b2a3b1eb42aa59a5378d7b6))
+*  add emoji ([bca4ecd](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/bca4ecda1f97c7a0114b8214287688ab7dfcd262))
+*  unlock commit type ([4365246](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/436524612b1e1c65d9d70bea0952ce3d11471ba4))
+* **awesome:**  addresses the issue brought up in [#133](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/133) ([8cbce3e](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/8cbce3e7fa96b48737b5f7dd0dcc22bb2635a239))
+* **awesome:**  addresses the issue brought up in [#133](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/133) ([48cd3ee](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/48cd3ee149bb9d5d3a3e63da3b78fad7eda0de0e))
+
+
+### 📚　Documentation
+
+* **conventional-changelog-angular:**  fix README link ([#649](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/649)) ([50b829d](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/50b829dd497c64bbc495c1082cc9bf4d079df212))
+* **conventional-changelog-angular:**  add full stop ([#606](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/606)) ([1cf7b75](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/1cf7b758f794b3416b89b65ad347a3befec61d65))
+
+
+### Miscellaneous
+
+*  update desc ([7be91c4](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/7be91c4c8283e0dd76e9e79205622e29dfc755d6))
+* . ([4cda7a0](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/4cda7a0d5e9c83b21167529a166e97b8c6086c05))
+* init ([4b243a9](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/4b243a96bf5a8defbdf5dd9737f9fdac0c1f88da))
+* Publish ([f0650bb](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/f0650bbe1888c8243d280008adf519cee5b6df12))
+* chore!: drop support for Node 8 (#599) ([589c9e4](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/589c9e495c74b2dfc9f4f91bbf9facc372bbf472)), closes [#599](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/599)
+* refactor!: drop support for Node 6 (#558) ([c831bd3](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/c831bd304b948149e749d7e9813ef83b74c44b0f)), closes [#558](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/558)
+
+
+
+
+
 ## [5.0.10](https://github.com/conventional-changelog/conventional-changelog/compare/conventional-changelog-angular@5.0.6...conventional-changelog-angular@5.0.10) (2020-05-08)
 
 **Note:** Version bump only for package conventional-changelog-angular
