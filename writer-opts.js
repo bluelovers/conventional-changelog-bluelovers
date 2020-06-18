@@ -11,7 +11,7 @@ const order = [...Object.keys(EnumCommitType)]
   .reduce((a, type) => {
     a.push(type);
 
-    let title = EnumCommitType[type] ?? type;
+    let title = EnumCommitType[type] || type;
 
     if (title !== type)
     {
