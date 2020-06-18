@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.23](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.22...@bluelovers/conventional-changelog-bluelovers@5.0.23) (2020-06-18)
+
+
+### 🐛　Bug Fixes
+
+* SyntaxError: Unexpected token '?' ([2efb4c0](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/2efb4c08d60c77aa00ef90c5e4fca4792c45c6e3))
+
+
+### ⚙️　Continuous Integration
+
+* support skip ([33198ca](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/33198ca743957afe5d94ee53930181f0a8534784))
+* add github test , and replace git-dummy-commit => git-dummy-commit2 ([d430193](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/d43019374e675b0bfa0c70d613410ed7f8146a2c))
+
+
+
+
+
 ## [5.0.22](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.21...@bluelovers/conventional-changelog-bluelovers@5.0.22) (2020-06-16)
 
 
