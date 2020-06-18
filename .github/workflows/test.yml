@@ -9,6 +9,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-node@master
+    - name: setup git config
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
     - run: |
         yarn run ci:install
         yarn run ci:test
