@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.24](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.23...@bluelovers/conventional-changelog-bluelovers@5.0.24) (2020-08-13)
+
+
+### ✨　Features
+
+* add new type `WIP`, new note `TODO`, `FIXME` ([6b7619c](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/6b7619cb49584bd4e2a0e95cc9b785307ce4e858))
+
+
+### ⚙️　Continuous Integration
+
+* setup git config for avoid test fail ([8b9853a](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/8b9853a36c8871d1319fb15864d8ef57595fd8fd))
+* setup git config for avoid test fail ([457622b](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/457622ba916751df4ad26d961ecb1baec2ae42ff))
+
+
+
+
+
 ## [5.0.23](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.22...@bluelovers/conventional-changelog-bluelovers@5.0.23) (2020-06-18)
 
 

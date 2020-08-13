@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/conventional-changelog-bluelovers",
-  "version": "5.0.23",
+  "version": "5.0.24",
   "description": "mixin angular/emoji preset of conventional-changelog",
   "keywords": [
     "conventional-changelog",
@@ -35,14 +35,15 @@
   "scripts": {
     "test": "yarn run test-windows",
     "test-windows": "mocha --timeout 30000 ./test/test.js",
-    "ci:install": "yarn install",
     "ci:test": "yarn run test",
-    "npm:publish": "npm publish",
+    "ci:install": "yarn install",
+    "npm:publish": "yarn run version:bump && npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --bump patch",
+    "version:bump": "yarn-tool version",
     "prepublish:lockfile": "npx sync-lockfile .",
+    "prepublishOnly_": "yarn run test",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
     "prepublishOnly:update": "yarn run ncu && yarn run sort-package-json",
-    "prepublishOnly_": "yarn run test",
     "postpublish": "yarn run postpublish:changelog && yarn run postpublish:git:commit && yarn run postpublish:git:tag && yarn run postpublish:git:push",
     "postpublish:changelog": "ynpx --quiet @yarn-tool/changelog && git add ./CHANGELOG.md",
     "postpublish:git:commit": "git commit -m \"chore(release): publish\" . & echo postpublish:git:commit",
