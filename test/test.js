@@ -78,6 +78,7 @@ betterThanBefore.setups([
     gitDummyCommit(['test: check support BREAKING-CHANGE', 'BREAKING-CHANGE: support BREAKING-CHANGE'])
     gitDummyCommit(['test!: check support type!'])
     gitDummyCommit(['test(cc)!: check support type(scope)!'])
+    gitDummyCommit(['test: My commit message', ...`-sideNotes-\nIt should warn the correct unfound file names.\nAlso it should continue if one file cannot be found.\nTests are added for these`.split('\n')])
   }
 ])
 
@@ -383,6 +384,8 @@ describe('angular preset', function () {
         const idx = chunk.indexOf('### BREAKING CHANGES');
 
         expect(idx).to.greaterThan(10);
+
+        console.dir(chunk.slice(0, idx));
 
         chunk = chunk.slice(idx);
 

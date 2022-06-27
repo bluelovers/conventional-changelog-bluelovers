@@ -2,6 +2,8 @@
 export enum EnumNoteTitle
 {
 	BREAKING_CHANGES = 'BREAKING CHANGES',
+	TODO = 'TODO',
+	FIXME = 'FIXME',
 }
 
 export function normalizeNoteTitle(title: string)
@@ -17,6 +19,10 @@ export function normalizeNoteTitle(title: string)
 		case 'BREAKING_CHANGE':
 		case 'BREAKING_CHANGES':
 			return EnumNoteTitle.BREAKING_CHANGES;
+		case 'TODO':
+			return EnumNoteTitle.TODO;
+		case 'FIXME':
+			return EnumNoteTitle.FIXME;
 	}
 
 	return title || EnumNoteTitle.BREAKING_CHANGES

@@ -6,6 +6,7 @@ const { EnumCommitType, EnumCommitTypeEmoji, EnumCommitEmojiToType } = require('
 const compareFunc = require('compare-func')
 const Q = require('q')
 const { normalizeNoteTitle } = require('./lib/normalize');
+const { addBangNotes } = require('./lib/add-bang-notes');
 const readFile = Q.denodeify(require('fs').readFile)
 const resolve = require('path').resolve
 

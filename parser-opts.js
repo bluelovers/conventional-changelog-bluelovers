@@ -2,9 +2,10 @@
 
 const emojiRegex = require('emoji-regex')();
 
-const headerPattern = /^(\w+)(?:\(([^)]*)\))?:\s+(.*)$/;
+const headerPattern = /^(\w+)(?:\(([^)]*)\))?!?:\s+(.*)$/;
+const breakingHeaderPattern = /^(\w+)(?:\(([^)]*)\))?!:\s+(.*)$/;
 
-const re2 = new RegExp(`^(?:(\\w+)(?:\\(([^)]*)\\))?:|(${emojiRegex.source})(?:\\((.+)\\))?)\\s+(.*)$`, 'u')
+const re2 = new RegExp(`^(?:(\\w+)(?:\\(([^)]*)\\))?!?:|(${emojiRegex.source})(?:\\((.+)\\))?)\\s+(.*)$`, 'u')
 
 headerPattern[Symbol.match] = headerPattern.exec = function (str)
 {
@@ -24,7 +25,10 @@ headerPattern[Symbol.match] = headerPattern.exec = function (str)
   return result
 }
 
-module.exports = {
+/**
+ * @type { import('conventional-changelog-core').ParserOptions }
+ */
+const parserOpts = {
   headerPattern,
   headerCorrespondence: [
     'type',
@@ -32,7 +36,7 @@ module.exports = {
     'subject'
   ],
 
-  breakingHeaderPattern: /^(\w*)(?:\((.*)\))?!: (.*)$/,
+  breakingHeaderPattern,
 
   noteKeywords: [
     'BREAKING-CHANGE',
@@ -41,5 +45,22 @@ module.exports = {
     'FIXME'
   ],
   revertPattern: /^(?:Revert|revert:)\s"?([\s\S]+?)"?\s*This reverts commit (\w*)\./i,
-  revertCorrespondence: ['header', 'hash']
+  revertCorrespondence: ['header', 'hash'],
+
+  referenceActions: [
+    'close',
+    'closes',
+    'closed',
+    'fix',
+    'fixes',
+    'fixed',
+    'resolve',
+    'resolves',
+    'resolved',
+    'issues',
+    'pr',
+    'see',
+  ],
 }
+
+module.exports = parserOpts

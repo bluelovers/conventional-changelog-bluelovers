@@ -24,6 +24,7 @@ export const EnumCommitType = {
 	WIP: 'Work in Progress',
 
 	chore: 'Chores',
+	deps: 'Dependencies',
 	misc: 'Miscellaneous',
 }
 
@@ -42,6 +43,7 @@ export const EnumCommitTypeEmoji: Record<ICommitTypes, IEmoji | string> = {
 	build: emoji.build,
 	ci: emoji.ci,
 	chore: emoji.chore,
+	deps: emoji.chore,
 	misc: emoji.tag,
 
 	improvement: emoji.improvement,

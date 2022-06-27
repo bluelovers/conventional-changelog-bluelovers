@@ -17,6 +17,7 @@ export declare const EnumCommitType: {
     ci: string;
     WIP: string;
     chore: string;
+    deps: string;
     misc: string;
 };
 export declare type ICommitTypes = keyof typeof EnumCommitType;
