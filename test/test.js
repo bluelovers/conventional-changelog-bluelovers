@@ -1,36 +1,27 @@
 'use strict'
-var conventionalChangelogCore = require('conventional-changelog-core')
-var preset = require('../')
-var expect = require('chai').expect
-var mocha = require('mocha')
-var describe = mocha.describe
-var it = mocha.it
-var gitDummyCommit = require('git-dummy-commit2').default
-var shell = require('shelljs')
-var through = require('through2')
-var path = require('path')
-var betterThanBefore = require('better-than-before')()
-var preparing = betterThanBefore.preparing
-var rimraf = require('rimraf').sync
-var fs = require('fs-extra')
+const conventionalChangelogCore = require('conventional-changelog-core')
+const preset = require('../')
+const expect = require('chai').expect
+const through = require('through2')
+const path = require('path')
+const fs = require('fs')
+const tmp = require('tmp')
+const { gitInit, gitDummyCommit, exec } = require('./tools/test-tools')
+const betterThanBefore = require('better-than-before')()
+const preparing = betterThanBefore.preparing
 
 betterThanBefore.setups([
   function () {
-    shell.config.resetForTesting()
-    shell.cd(__dirname)
-
-    fs.removeSync(path.posix.join(__dirname, 'tmp', 'git-templates'))
-    fs.ensureDirSync(path.posix.join(__dirname, 'tmp', 'git-templates'));
-
-    //rimraf(path.posix.join(__dirname, 'tmp', 'git-templates'))
-    //shell.rm('-rf', 'tmp')
-    //shell.mkdir('tmp')
-    //shell.cd('tmp')
-    //shell.mkdir('git-templates')
-
-    shell.cd(path.posix.join(__dirname, 'tmp', 'git-templates'))
-
-    shell.exec('git init --template=./git-templates')
+    const tmpDir = tmp.dirSync()
+    process.chdir(tmpDir.name)
+    gitInit()
+    fs.writeFileSync('./package.json', JSON.stringify({
+      name: 'conventional-changelog-core',
+      repository: {
+        type: 'git',
+        url: 'https://github.com/conventional-changelog/conventional-changelog.git'
+      }
+    }))
 
     gitDummyCommit(['build: first build setup', 'BREAKING CHANGE: New build system.'])
     gitDummyCommit(['ci(travis): add TravisCI pipeline', 'BREAKING CHANGE: Continuously integrated.'])
@@ -58,7 +49,7 @@ betterThanBefore.setups([
     gitDummyCommit(['test(*): more tests', 'BREAKING CHANGE: The Change is huge.'])
   },
   function () {
-    shell.exec('git tag v1.0.0')
+    exec('git tag v1.0.0')
     gitDummyCommit('feat: some more features')
   },
   function () {
@@ -93,7 +84,7 @@ describe('angular preset', function () {
         expect(chunk).to.include('amazing new module')
         expect(chunk).to.include('**compile:** avoid a bug')
         expect(chunk).to.include('make it faster')
-        expect(chunk).to.include(', closes [#1](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/1) [#2](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/2)')
+        expect(chunk).to.include(', closes [#1](https://github.com/conventional-changelog/conventional-changelog/issues/1) [#2](https://github.com/conventional-changelog/conventional-changelog/issues/2)')
         expect(chunk).to.include('New build system.')
         expect(chunk).to.include('Not backward compatible.')
         expect(chunk).to.include('**compile:** The Change is huge.')
@@ -129,7 +120,7 @@ describe('angular preset', function () {
       })
       .pipe(through(function (chunk) {
         chunk = chunk.toString()
-        expect(chunk).to.include('[#133](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/133)')
+        expect(chunk).to.include('[#133](https://github.com/conventional-changelog/conventional-changelog/issues/133)')
         done()
       }))
   })
@@ -145,8 +136,8 @@ describe('angular preset', function () {
       })
       .pipe(through(function (chunk) {
         chunk = chunk.toString()
-        expect(chunk).to.include('[#88](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/88)')
-        expect(chunk).to.not.include('closes [#88](https://github.com/bluelovers/conventional-changelog-bluelovers/issues/88)')
+        expect(chunk).to.include('[#88](https://github.com/conventional-changelog/conventional-changelog/issues/88)')
+        expect(chunk).to.not.include('closes [#88](https://github.com/conventional-changelog/conventional-changelog/issues/88)')
         done()
       }))
   })
@@ -192,7 +183,7 @@ describe('angular preset', function () {
 
   it('should work if there is a semver tag', function (done) {
     preparing(6)
-    var i = 0
+    let i = 0
 
     conventionalChangelogCore({
       config: preset,
@@ -217,7 +208,7 @@ describe('angular preset', function () {
 
   it('should work with unknown host', function (done) {
     preparing(6)
-    var i = 0
+    let i = 0
 
     conventionalChangelogCore({
       config: preset,
@@ -244,7 +235,7 @@ describe('angular preset', function () {
 
   it('should work specifying where to find a package.json using conventional-changelog-core', function (done) {
     preparing(7)
-    var i = 0
+    let i = 0
 
     conventionalChangelogCore({
       config: preset,
@@ -272,7 +263,7 @@ describe('angular preset', function () {
 
   it('should fallback to the closest package.json when not providing a location for a package.json', function (done) {
     preparing(7)
-    var i = 0
+    let i = 0
 
     conventionalChangelogCore({
       config: preset
@@ -283,7 +274,9 @@ describe('angular preset', function () {
       .pipe(through(function (chunk, enc, cb) {
         chunk = chunk.toString()
 
-        expect(chunk).to.include('conventional-changelog-')
+        expect(chunk).to.include('(https://github.com/conventional-changelog/conventional-changelog/compare')
+        expect(chunk).to.include('](https://github.com/conventional-changelog/conventional-changelog/commit/')
+        expect(chunk).to.include('](https://github.com/conventional-changelog/conventional-changelog/issues/')
 
         i++
         cb()
