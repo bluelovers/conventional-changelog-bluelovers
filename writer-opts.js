@@ -1,9 +1,11 @@
 'use strict'
+// @ts-check
 
 const { EnumCommitType, EnumCommitTypeEmoji, EnumCommitEmojiToType } = require('./lib/types');
 
 const compareFunc = require('compare-func')
 const Q = require('q')
+const { normalizeNoteTitle } = require('./lib/normalize');
 const readFile = Q.denodeify(require('fs').readFile)
 const resolve = require('path').resolve
 
@@ -29,9 +31,17 @@ const order = [...Object.keys(EnumCommitType)]
   }, [])
 ;
 
+/**
+ *
+ * @type { import('conventional-changelog-core').WriterOptions["commitGroupsSort"] }
+ */
 const commitGroupsSort = (g1, g2) =>
   order.indexOf(g1.title) - order.indexOf(g2.title);
 
+/**
+ *
+ * @type { Promise<import('conventional-changelog-core').WriterOptions> }
+ */
 module.exports = Q.all([
   readFile(resolve(__dirname, './templates/template.hbs'), 'utf-8'),
   readFile(resolve(__dirname, './templates/header.hbs'), 'utf-8'),
@@ -49,8 +59,14 @@ module.exports = Q.all([
     return writerOpts
   })
 
+/**
+ *
+ * @return { import('conventional-changelog-core').WriterOptions }
+ */
 function getWriterOpts () {
-  return {
+
+  /** @type { import('conventional-changelog-core').WriterOptions } */
+  const opts = {
     transform: (commit, context) => {
       let discard = true
       const issues = []
@@ -58,7 +74,7 @@ function getWriterOpts () {
       let currentNoteTitle;
 
       commit.notes && commit.notes.forEach(note => {
-        note.title = note.title || currentNoteTitle || 'BREAKING CHANGES'
+        note.title = normalizeNoteTitle(note.title || currentNoteTitle)
         discard = false
         currentNoteTitle = note.title
       })
@@ -179,4 +195,6 @@ function getWriterOpts () {
     noteGroupsSort: 'title',
     notesSort: compareFunc
   }
+
+  return opts
 }
