@@ -62,6 +62,22 @@ betterThanBefore.setups([
   function () {
     gitDummyCommit(['Revert \\"feat: default revert format\\"', 'This reverts commit 1234.'])
     gitDummyCommit(['revert: feat: custom revert format', 'This reverts commit 5678.'])
+  },
+  function ()
+  {
+    const tmpDir = tmp.dirSync()
+    process.chdir(tmpDir.name)
+    gitInit()
+    fs.writeFileSync('./package.json', JSON.stringify({
+      name: 'conventional-changelog-core',
+      repository: {
+        type: 'git',
+        url: 'https://github.com/conventional-changelog/conventional-changelog.git'
+      }
+    }))
+    gitDummyCommit(['test: check support BREAKING-CHANGE', 'BREAKING-CHANGE: support BREAKING-CHANGE'])
+    gitDummyCommit(['test!: check support type!'])
+    gitDummyCommit(['test(cc)!: check support type(scope)!'])
   }
 ])
 
@@ -345,6 +361,35 @@ describe('angular preset', function () {
         chunk = chunk.toString()
         expect(chunk).to.match(/custom revert format/)
         expect(chunk).to.match(/default revert format/)
+        done()
+      }))
+  })
+
+  it('support `BREAKING-CHANGE`', function (done)
+  {
+    preparing(10)
+
+    conventionalChangelogCore({
+      config: preset
+    })
+      .on('error', function (err)
+      {
+        done(err)
+      })
+      .pipe(through(function (chunk)
+      {
+        chunk = chunk.toString()
+
+        const idx = chunk.indexOf('### BREAKING CHANGES');
+
+        expect(idx).to.greaterThan(10);
+
+        chunk = chunk.slice(idx);
+
+        console.dir(chunk);
+        expect(chunk).to.match(/BREAKING CHANGES/)
+        expect(chunk).to.match(/check support type!/)
+        expect(chunk).to.match(/check support type\(scope\)!/)
         done()
       }))
   })

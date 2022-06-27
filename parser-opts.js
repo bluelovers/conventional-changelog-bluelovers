@@ -1,6 +1,6 @@
 'use strict'
 
-const emojiRegex = require('emoji-regex/text')();
+const emojiRegex = require('emoji-regex')();
 
 const headerPattern = /^(\w+)(?:\(([^)]*)\))?:\s+(.*)$/;
 
@@ -31,7 +31,15 @@ module.exports = {
     'scope',
     'subject'
   ],
-  noteKeywords: ['BREAKING CHANGE', 'TODO', 'FIXME'],
+
+  breakingHeaderPattern: /^(\w*)(?:\((.*)\))?!: (.*)$/,
+
+  noteKeywords: [
+    'BREAKING-CHANGE',
+    'BREAKING CHANGE',
+    'TODO',
+    'FIXME'
+  ],
   revertPattern: /^(?:Revert|revert:)\s"?([\s\S]+?)"?\s*This reverts commit (\w*)\./i,
   revertCorrespondence: ['header', 'hash']
 }
