@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.25](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.24...@bluelovers/conventional-changelog-bluelovers@5.0.25) (2022-06-27)
+
+
+### ✨　Features
+
+* add type `deps` ([5e5e4ba](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/5e5e4baa48fde77402349a24c4a9102d0b3b9d75))
+* support `BREAKING-CHANGE` , `!` ([583fb8f](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/583fb8f99b933c755820de18d9856cd43f7df06a))
+* normalize note title ([bae4e29](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/bae4e29c842e9af16c256f843ee14e5fae9109e4))
+
+
+### 🚨　Tests
+
+* update test ([b083198](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/b0831983ee07c1cc3b62bd04e92f7a443631fd42))
+
+
+
+
+
 ## [5.0.24](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.23...@bluelovers/conventional-changelog-bluelovers@5.0.24) (2020-08-13)
 
 

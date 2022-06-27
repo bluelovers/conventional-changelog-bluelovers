@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/conventional-changelog-bluelovers",
-  "version": "5.0.24",
+  "version": "5.0.25",
   "description": "mixin angular/emoji preset of conventional-changelog",
   "keywords": [
     "conventional-changelog",
@@ -39,6 +39,7 @@
     "ci:install": "yarn install",
     "npm:publish": "yarn run version:bump && npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --bump patch",
+    "preversion": "yarn run test",
     "version:bump": "yarn-tool version",
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly_": "yarn run test",
