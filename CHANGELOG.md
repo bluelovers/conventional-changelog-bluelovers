@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.26](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.25...@bluelovers/conventional-changelog-bluelovers@5.0.26) (2022-07-10)
+
+
+### ✨　Features
+
+* add `conflict` ([fbcceda](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/fbcceda507180caf13322ac6e35ca347083b62d9))
+
+
+
+
+
 ## [5.0.25](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.24...@bluelovers/conventional-changelog-bluelovers@5.0.25) (2022-06-27)
 
 
