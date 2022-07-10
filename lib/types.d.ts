@@ -10,6 +10,7 @@ export declare const EnumCommitType: {
     perf: string;
     revert: string;
     refactor: string;
+    conflict: string;
     docs: string;
     style: string;
     test: string;
@@ -18,6 +19,7 @@ export declare const EnumCommitType: {
     WIP: string;
     chore: string;
     deps: string;
+    dep: string;
     misc: string;
 };
 export declare type ICommitTypes = keyof typeof EnumCommitType;

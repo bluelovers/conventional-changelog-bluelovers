@@ -13,6 +13,7 @@ export const EnumCommitType = {
 
 	revert: 'Reverts',
 	refactor: 'Code Refactoring',
+	conflict: 'Conflict',
 
 	docs: 'Documentation',
 	style: 'Styles',
@@ -25,6 +26,7 @@ export const EnumCommitType = {
 
 	chore: 'Chores',
 	deps: 'Dependencies',
+	dep: 'Dependencies',
 	misc: 'Miscellaneous',
 }
 
@@ -36,6 +38,7 @@ export const EnumCommitTypeEmoji: Record<ICommitTypes, IEmoji | string> = {
 	fix: emoji.fix,
 	perf: emoji.perf,
 	revert: emoji.revert,
+	conflict: '⚔️',
 	docs: emoji.docs,
 	style: emoji.style,
 	refactor: emoji.refactor,
@@ -43,7 +46,8 @@ export const EnumCommitTypeEmoji: Record<ICommitTypes, IEmoji | string> = {
 	build: emoji.build,
 	ci: emoji.ci,
 	chore: emoji.chore,
-	deps: emoji.chore,
+	deps: '📌',
+	dep: '📌',
 	misc: emoji.tag,
 
 	improvement: emoji.improvement,
