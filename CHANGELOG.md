@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.27](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.26...@bluelovers/conventional-changelog-bluelovers@5.0.27) (2022-08-24)
+
+
+### ✨　Features
+
+* move up notes ([7af0052](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/7af0052ed31a52bbfaf50b0b7d5c690ca2dbe83d))
+
+
+
+
+
 ## [5.0.26](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.25...@bluelovers/conventional-changelog-bluelovers@5.0.26) (2022-07-10)
 
 

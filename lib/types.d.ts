@@ -22,7 +22,7 @@ export declare const EnumCommitType: {
     dep: string;
     misc: string;
 };
-export declare type ICommitTypes = keyof typeof EnumCommitType;
-export declare type IEmoji = emoji;
+export type ICommitTypes = keyof typeof EnumCommitType;
+export type IEmoji = emoji;
 export declare const EnumCommitTypeEmoji: Record<ICommitTypes, IEmoji | string>;
 export declare const EnumCommitEmojiToType: ITSPartialRecord<IEmoji, ICommitTypes>;

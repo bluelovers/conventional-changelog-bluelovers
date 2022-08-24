@@ -1,6 +1,6 @@
 {
   "name": "@bluelovers/conventional-changelog-bluelovers",
-  "version": "5.0.26",
+  "version": "5.0.27",
   "description": "mixin angular/emoji preset of conventional-changelog",
   "keywords": [
     "conventional-changelog",
