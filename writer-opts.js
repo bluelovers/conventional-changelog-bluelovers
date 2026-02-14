@@ -129,9 +129,9 @@ function getWriterOpts()
      * 4. 處理 scope、hash、subject 中的連結 / Process links in scope, hash, and subject
      * 5. 過濾重複的 issue 引用 / Filter duplicate issue references
      *
-     * @param {any} commit - 原始 commit 物件 / Original commit object
-     * @param {any} context - 上下文資訊（repository、host 等）/ Context information (repository, host, etc.)
-     * @returns {any} 轉換後的 commit 或 undefined（若應捨棄）/ Transformed commit or undefined (if should be discarded)
+     * @param {import('conventional-commits-parser').Commit} commit - 原始 commit 物件 / Original commit object
+     * @param {import('conventional-changelog-writer').Context} context - 上下文資訊（repository、host 等）/ Context information (repository, host, etc.)
+     * @returns {import('conventional-commits-parser').Commit} 轉換後的 commit 或 undefined（若應捨棄）/ Transformed commit or undefined (if should be discarded)
      */
     transform: (commit, context) => {
       // 預設捨棄 commit，除非符合特定條件
