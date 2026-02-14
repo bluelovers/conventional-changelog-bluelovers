@@ -24,7 +24,7 @@ module.exports = {
    * - level 1 (minor): 存在新功能但無 BREAKING CHANGES / Contains features but no BREAKING CHANGES
    * - level 2 (patch): 僅有修復或其他變更 / Only fixes or other changes
    *
-   * @param {Array} commits - 提交記錄陣列 / Array of commit records
+   * @param {import('conventional-commits-parser').Commit[]} commits - 提交記錄陣列 / Array of commit records
    * @returns {{level: number, reason: string}} 升級等級與原因 / Bump level and reason
    */
   whatBump: (commits) => {
