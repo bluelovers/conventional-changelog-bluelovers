@@ -139,6 +139,13 @@ function getWriterOpts()
       let discard = true
       const issues = []
 
+      /**
+       * fix `Cannot modify immutable object` when lerna > 7
+       * 
+       * @see https://github.com/conventional-changelog/conventional-changelog/blob/0cdedf882b7d2c86ea8e03ce0c4fafc597fa2108/packages/conventional-changelog-writer/src/commit.ts#L22
+       */
+      commit = { ...commit }
+
       let currentNoteTitle;
 
       // 處理並標準化所有 notes（如 BREAKING CHANGE）
