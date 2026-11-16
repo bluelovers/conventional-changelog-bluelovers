@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.28](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.27...@bluelovers/conventional-changelog-bluelovers@5.0.28) (2026-11-16)
+
+
+
+### 🐛　Bug Fixes
+
+* **writer-opts:** 修復在 lerna > 7 時無法修改不可變對象的問題 ([0599e98](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/0599e98d5c87fb81778c89896d18f6af670b68e8)), closes [/github.com/conventional-changelog/conventional-changelog/blob/0cdedf882b7d2c86ea8e03ce0c4fafc597fa2108/packages/conventional-changelog-writer/src/commit.ts#L22](https://github.com//github.com/conventional-changelog/conventional-changelog/blob/0cdedf882b7d2c86ea8e03ce0c4fafc597fa2108/packages/conventional-changelog-writer/src/commit.ts/issues/L22)
+
+
+### 📚　Documentation
+
+* 為所有模組新增雙語 JSDoc 註釋 ([44fd30b](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/44fd30bc58ef651d0022502680218918a9c386a3))
+* **conventional-recommended-bump:** 為 commits 參數添加具體類型註解 ([ea235d4](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/ea235d4bd291005acab0296fb7b3d6f2c0eda118))
+* **writer-opts:** 為 transform 函數參數添加具體類型註解 ([097f904](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/097f9044b23b5a31e92f423e69e30148793dd5be))
+
+
+### ♻️　Chores
+
+* **deps:** 更新依赖版本并添加 pnpm 配置 ([39d7d19](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/39d7d193fd9790e7e9f1317715f16fc3b0c14749))
+
+
+
 ## [5.0.27](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.26...@bluelovers/conventional-changelog-bluelovers@5.0.27) (2022-08-24)
 
 
