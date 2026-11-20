@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.30](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.29...@bluelovers/conventional-changelog-bluelovers@5.0.30) (2026-11-20)
+
+
+
+### 🐛　Bug Fixes
+
+* **writer-opts:** 修復 notes 物件屬性被直接修改的問題 ([0cc5270](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/0cc527021ba4d05fb877a75cb84dc4db80b00cf0))
+
+
+
 ## [5.0.29](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.28...@bluelovers/conventional-changelog-bluelovers@5.0.29) (2026-11-20)
 
 
