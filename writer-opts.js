@@ -144,19 +144,21 @@ function getWriterOpts()
        *
        * @see https://github.com/conventional-changelog/conventional-changelog/blob/0cdedf882b7d2c86ea8e03ce0c4fafc597fa2108/packages/conventional-changelog-writer/src/commit.ts#L22
        */
-      commit = { ...commit }
+      commit = { ...commit };
 
       let currentNoteTitle;
 
       // 處理並標準化所有 notes（如 BREAKING CHANGE）
       // Process and normalize all notes (e.g., BREAKING CHANGE)
       commit.notes && (commit.notes = commit.notes.reduce((notes, note) => {
-        note.title = normalizeNoteTitle(note.title || currentNoteTitle)
+        currentNoteTitle = normalizeNoteTitle(note.title || currentNoteTitle);
         // 有 note 的 commit 必須保留
-        discard = false
-        currentNoteTitle = note.title
+        discard = false;
 
-        notes.push(note)
+        notes.push({
+          ...note,
+          title: currentNoteTitle,
+        });
         return notes
       }, []));
 
