@@ -141,7 +141,7 @@ function getWriterOpts()
 
       /**
        * fix `Cannot modify immutable object` when lerna > 7
-       * 
+       *
        * @see https://github.com/conventional-changelog/conventional-changelog/blob/0cdedf882b7d2c86ea8e03ce0c4fafc597fa2108/packages/conventional-changelog-writer/src/commit.ts#L22
        */
       commit = { ...commit }
@@ -150,12 +150,15 @@ function getWriterOpts()
 
       // 處理並標準化所有 notes（如 BREAKING CHANGE）
       // Process and normalize all notes (e.g., BREAKING CHANGE)
-      commit.notes && commit.notes.forEach(note => {
+      commit.notes && (commit.notes = commit.notes.reduce((notes, note) => {
         note.title = normalizeNoteTitle(note.title || currentNoteTitle)
         // 有 note 的 commit 必須保留
         discard = false
         currentNoteTitle = note.title
-      })
+
+        notes.push(note)
+        return notes
+      }, []));
 
       // 將 emoji 轉換為對應的 commit 類型
       // Convert emoji to corresponding commit type
