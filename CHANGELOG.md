@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [5.0.29](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.28...@bluelovers/conventional-changelog-bluelovers@5.0.29) (2026-11-20)
+
+
+
+### 🐛　Bug Fixes
+
+* Cannot modify immutable object ([1441ebb](https://github.com/bluelovers/conventional-changelog-bluelovers/commit/1441ebba1ef9cb0214ad77c8197af243c47c6605))
+
+
+
 ## [5.0.28](https://github.com/bluelovers/conventional-changelog-bluelovers/compare/@bluelovers/conventional-changelog-bluelovers@5.0.27...@bluelovers/conventional-changelog-bluelovers@5.0.28) (2026-11-16)
 
 
